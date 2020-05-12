@@ -18,6 +18,6 @@ class Plateau:
                         ]
 
 
-plateau = Plateau
+plateau = Plateau()
 print(plateau.plateau_coor)
 print(plateau.plateau_init)

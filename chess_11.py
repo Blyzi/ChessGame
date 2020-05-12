@@ -17,21 +17,17 @@ class Plateau:
                         ["TB1", "CB1", "FB1", "RB1", "EB1", "FB2", "CB2", "TB2"]
                         ]
 
-    @classmethod
-    def create_plateau(cls):
-        l=[]
-        for i in range(len(cls.plateau_init)):
-            l.append([])
-            for j in range(len(cls.plateau_init)):
-                l[i].append([])
-        for i in range(len(cls.plateau_init)):
-            for j in range(len(cls.plateau_init)):
-                l[i][j].append(cls.plateau_coor[i][j])
-                l[i][j].append(cls.plateau_init[i][j])
-        return l
-
-plate=Plateau.create_plateau()
-print(plate)
+    def check_piece(self,go_to_position):
+        n=str(go_to_position)
+        i=int(n[0])-1
+        p=self.plateau_coor[i].index(go_to_position)
+        gotopiece=self.plateau_init[i][p]
+        if gotopiece =="":
+                print("pas de piece sur la case")
+        else:
+                print(gotopiece, "sur la case")
+		
 plateau = Plateau()
 print(plateau.plateau_coor)
 print(plateau.plateau_init)
+plateau.check_piece(35)

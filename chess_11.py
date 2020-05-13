@@ -1,5 +1,7 @@
 
+import piece_11
 
+#class
 class Plateau:
 
     def __init__(self):
@@ -17,6 +19,16 @@ class Plateau:
                         ["TB1", "CB1", "FB1", "RB1", "EB1", "FB2", "CB2", "TB2"]
                         ]
 
+    def find_coord_of_piece(self,selected_piece):
+        if not (selected_piece==""):
+            for i in self.plateau_init:
+                for j in i:
+                    if selected_piece==j:
+                        a=i.index(j)
+                        b=self.plateau_init.index(i)
+            coord=self.plateau_coor[b][a]
+            return [selected_piece,coord]
+
     def check_piece(self,go_to_position):
         n=str(go_to_position)
         i=int(n[0])-1
@@ -26,8 +38,30 @@ class Plateau:
                 return [False,""]
         else:
                 return [True,gotopiece]
-		
+
+    def check_eat_possibility(self,go_to_position,piece_to_move):
+        if self.check_piece(go_to_position)[0]:
+                color1=piece_to_move[1]
+                color2=self.check_piece(go_to_position)[1][1]
+                if color1 ==color2:
+                    eat_possibility=False
+                else:
+                    eat_possibility=True
+        else:
+            eat_possibility=False
+        return eat_possibility
+
+    def eat_piece(self,go_to_position):
+        if self.check_piece(go_to_position)[0]:
+            pass
+ 
+    def move_piece(self,list_to_move):
+        piece=list_to_move[0]
+        go_to_position=list_to_move[1]
+        
+        
+    
 plateau = Plateau()
-print(plateau.plateau_coor)
-print(plateau.plateau_init)
-print(plateau.check_piece(35))
+print(plateau.find_coord_of_piece(""))
+
+

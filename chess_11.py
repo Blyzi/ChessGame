@@ -23,11 +23,11 @@ class Plateau:
         p=self.plateau_coor[i].index(go_to_position)
         gotopiece=self.plateau_init[i][p]
         if gotopiece =="":
-                print("pas de piece sur la case")
+                return [False,""]
         else:
-                print(gotopiece, "sur la case")
+                return [True,gotopiece]
 		
 plateau = Plateau()
 print(plateau.plateau_coor)
 print(plateau.plateau_init)
-plateau.check_piece(35)
+print(plateau.check_piece(35))

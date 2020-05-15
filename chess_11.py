@@ -1,4 +1,5 @@
 from tkinter import *
+import piece_11
 
 class Plateau:
 
@@ -18,6 +19,7 @@ class Plateau:
                         ["TB1", "CB1", "FB1", "RB1", "EB1", "FB2", "CB2", "TB2"]
                         ]
 
+
     def find_coord_of_piece(self, selected_piece):
         if not (selected_piece == ""):
             for i in self.plateau_init:
@@ -28,7 +30,12 @@ class Plateau:
             coord = self.plateau_coor[b][a]
             return [selected_piece, coord]
 
-    def check_piece(self, go_to_position):
+    def two_case_pion_mvt(self,selected_piece):
+        coord=find_coord_of_piece(self, selected_piece)
+        
+        
+
+    def check_piece(self, go_to_position):  #vérifie si une piece se trouve dans la case de destination
         n = str(go_to_position)
         i = int(n[0]) - 1
         p = self.plateau_coor[i].index(go_to_position)

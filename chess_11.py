@@ -67,35 +67,33 @@ class Plateau:
 
     def display(self):
 
-        fen = Tk()
-
-        plateau = Canvas(fen, width=696, height=696, bg="white")
-        plateau.grid(row=1, column=0, padx=50)
+        self.screen = Canvas(fen, width=1000, height=600, bg="#efefef")
+        self.screen.grid(row=0, column=0)
 
         for i in range(1, 9):
             for j in range(1,9, 2):
                 if(i%2 == 0):
-                    print((i-1)*87, (j-1)*87, i*87, j*87)
-                    plateau.create_rectangle((i-1)*87, (j-1)*87, i*87, j*87, fill="gray", outline="black")
+                    self.screen.create_rectangle((i-1)*75, (j-1)*75, i*75, j*75, fill="gray", outline="black")
+                    self.screen.create_rectangle((i - 1) * 75, (j - 1) * 75 + 75, i * 75, j * 75 + 75, fill="white", outline="black")
                 else:
-                    plateau.create_rectangle((i-1)*87, (j-1)*87+87, i*87, j*87+87, fill="gray", outline="black")
+                    self.screen.create_rectangle((i - 1) * 75, (j - 1) * 75, i * 75, j * 75, fill="white", outline="black")
+                    self.screen.create_rectangle((i-1)*75, (j-1)*75+75, i*75, j*75+75, fill="gray", outline="black")
+
+        self.screen.create_rectangle(700, 0, 1000, 600, fill="#83A38C")
 
 
-        menu = Canvas(fen, bg="white", width=484, height=720)
-        menu.grid(row=0, column=1, rowspan=3)
+        self.player_turn = StringVar()
+        self.player_turn.set("Turn : White")
 
+        turn = Label(fen, textvariable=self.player_turn, bg="#83A38C")
+        self.screen.create_window(850, 50, window=turn)
 
-
-
-        fen.minsize(1280, 720)
-        fen.maxsize(1280,720)
+        fen.minsize(1000, 600)
 
         fen.title("Chess Game")
 
-        fen.configure(bg="#efefef")
 
         fen.mainloop()
-
 
 plateau = Plateau()
 print(plateau.find_coord_of_piece(""))

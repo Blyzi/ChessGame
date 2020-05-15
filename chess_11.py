@@ -66,7 +66,9 @@ class Plateau:
         go_to_position = list_to_move[1]
 
     def display(self):
-
+        
+        fen = Tk()
+        
         self.screen = Canvas(fen, width=1000, height=600, bg="#efefef")
         self.screen.grid(row=0, column=0)
 

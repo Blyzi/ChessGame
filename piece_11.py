@@ -33,11 +33,17 @@ class Cavalier(Piece):
         super().__init__(self,piece)
         self.mvt_possible=[-21,-19,-12,-8,21,19,12,8]
 
-#A faire        
+  
 class Pion(Piece):
     def __init__(self,piece):
         super().__init__(self,piece)
-        self.mvt_possible=[1]
-    
-    def color_and_place():
-        pass
+        self.mvt_possible=color_and_place(self)
+        self.piece=piece
+        
+    def color_and_place(self):  #orientation déplacement selon la couleur
+        if self.piece[1]=="N":
+            mvt=10
+        elif self.piece[1]=="B":
+            mvt=-10
+        return [mvt]
+

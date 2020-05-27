@@ -18,7 +18,7 @@ class Plateau:
                         ["PB1", "PB2", "PB3", "PB4", "PB5", "PB6", "PB7", "PB8"],
                         ["TB1", "CB1", "FB1", "RB1", "EB1", "FB2", "CB2", "TB2"]
                         ]
-
+        self.piece_eaten:[[B],[N]]
 
     def find_coord_of_piece(self, selected_piece):
         if not (selected_piece == ""):
@@ -68,9 +68,11 @@ class Plateau:
             eat_possibility = False
         return eat_possibility
 
-    def eat_piece(self, go_to_position):
-        if self.check_piece(go_to_position)[0]:
+    def eat_piece(self, go_to_position,piece_to_move):
+        if self.check_piece(go_to_position)[0] and self.check_eat_possibility(go_to_position,piece_to_move):
             pass
+        else:
+            print("Erreur, pas de piece à manger")
 
     def move_piece(self, list_to_move):
         piece = list_to_move[0]
@@ -111,4 +113,4 @@ class Plateau:
 plateau = Plateau()
 print(plateau.find_coord_of_piece(""))
 plateau.display()
-print(plateau.two_case_pion_mvt("TB1"))
+

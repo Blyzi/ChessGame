@@ -1,9 +1,12 @@
 from tkinter import *
-import piece_11
+from piece_11 import *
 
 class Plateau:
-
+    screen = None
+    fen = None
     def __init__(self):
+        screen = self.screen
+        fen = self.fen
         self.player_turn = "White"
         self.plateau_coor = [list(range(11, 19)), list(range(21, 29)), list(range(31, 39)), list(range(41, 49)),
                         list(range(51, 59)), list(range(61, 69)), list(range(71, 79)), list(range(81, 89))]
@@ -81,7 +84,7 @@ class Plateau:
     def display(self):
         
         fen = Tk()
-        
+
         self.screen = Canvas(fen, width=1000, height=600, bg="#efefef")
         self.screen.grid(row=0, column=0)
 
@@ -94,8 +97,11 @@ class Plateau:
                     self.screen.create_rectangle((i - 1) * 75, (j - 1) * 75, i * 75, j * 75, fill="white", outline="black")
                     self.screen.create_rectangle((i-1)*75, (j-1)*75+75, i*75, j*75+75, fill="gray", outline="black")
 
-        self.screen.create_rectangle(700, 0, 1000, 600, fill="#83A38C")
 
+
+
+
+        self.screen.create_rectangle(700, 0, 1000, 600, fill="#83A38C")
 
         self.player_turn = StringVar()
         self.player_turn.set("Turn : White")
@@ -111,6 +117,42 @@ class Plateau:
         fen.mainloop()
 
 plateau = Plateau()
+
+
+
 print(plateau.find_coord_of_piece(""))
 plateau.display()
+
+TN1 = Tour("TN1", 11, plateau.screen)
+TN2 = Tour("TN2", 18, plateau.screen)
+TB1 = Tour("TB1", 81, plateau.screen)
+TB2 = Tour("TB2", 88, plateau.screen)
+CN1 = Cavalier("CN1", 12, plateau.screen)
+CN2 = Cavalier("CN2", 17, plateau.screen)
+CB1 = Cavalier("CB1", 82, plateau.screen)
+CB2 = Cavalier("CB2", 87, plateau.screen)
+FN1 = Fou("FN1", 13, plateau.screen)
+FN2 = Fou("FN2", 16, plateau.screen)
+FB1 = Fou("FB1", 83, plateau.screen)
+FB2 = Fou("FB2", 86, plateau.screen)
+RB1 = Roi("RB1", 85, plateau.screen)
+RN1 = Roi("RN1", 14, plateau.screen)
+EN1 = Reine("EN1", 15, plateau.screen)
+EB1 = Reine("EB1", 84, plateau.screen)
+PN1 = Pion("PN1", 21, plateau.screen)
+PN2 = Pion("PN2", 22, plateau.screen)
+PN3 = Pion("PN3", 23, plateau.screen)
+PN4 = Pion("PN4", 24, plateau.screen)
+PN5 = Pion("PN5", 25, plateau.screen)
+PN6 = Pion("PN6", 26, plateau.screen)
+PN7 = Pion("PN7", 27, plateau.screen)
+PN8 = Pion("PN8", 28, plateau.screen)
+PB1 = Pion("PB1", 71, plateau.screen)
+PB2 = Pion("PB2", 72, plateau.screen)
+PB3 = Pion("PB3", 73, plateau.screen)
+PB4 = Pion("PB4", 74, plateau.screen)
+PB5 = Pion("PB5", 75, plateau.screen)
+PB6 = Pion("PB6", 76, plateau.screen)
+PB7 = Pion("PB7", 77, plateau.screen)
+PB8 = Pion("PB8", 78, plateau.screen)
 

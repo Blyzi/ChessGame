@@ -24,22 +24,22 @@ class Reine(Roi):
 
 class Tour(Piece):
     def __init__(self, piece, coor, screen):
-        super().__init__(self, piece, coor, screen)
+        super().__init__(piece, coor, screen)
         self.mvt_possible=[1,10,-1,-10]
 
 class Fou(Piece):
     def __init__(self, piece, coor, screen):
-        super().__init__(self, piece, coor, screen)
+        super().__init__( piece, coor, screen)
         self.mvt_possible=[11,-11,-9,9]
         
 class Cavalier(Piece):
     def __init__(self, piece, coor, screen):
-        super().__init__(self, piece, coor, screen)
+        super().__init__( piece, coor, screen)
         self.mvt_possible=[-21,-19,-12,-8,21,19,12,8]
 
 class Pion(Piece):
     def __init__(self, piece, coor, screen):
-        super().__init__(self, piece, coor, screen)
+        super().__init__( piece, coor, screen)
         self.mvt_possible=color_and_place(self)
         self.piece=piece
         
